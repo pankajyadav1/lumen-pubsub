@@ -36,6 +36,9 @@ class DummyClass extends Command
         parent::__construct();
 
         $this->pubsub = $pubsub;
+        // $config = config('pubsub.connections.kafka');
+        // $config['consumer_group_id'] = config('pubsub.connections.kafka.consumer_group_id') . '.' . self::class;
+        // $this->pubsub = $factory->make('kafka', $config);
     }
 
     /**
@@ -43,7 +46,7 @@ class DummyClass extends Command
      */
     public function handle()
     {
-        $this->pubsub->subscribe('channel_name', function ($message) {
+        $this->pubsub->subscribe('channel_name', function ($message, $return) {
 
         });
     }

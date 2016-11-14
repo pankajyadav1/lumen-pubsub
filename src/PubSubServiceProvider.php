@@ -1,6 +1,6 @@
 <?php
 
-namespace Superbalist\LaravelPubSub;
+namespace Takatost\LumenPubSub;
 
 use Google\Cloud\PubSub\PubSubClient as GoogleCloudPubSubClient;
 use Illuminate\Support\ServiceProvider;

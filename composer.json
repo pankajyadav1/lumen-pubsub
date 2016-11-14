@@ -1,6 +1,6 @@
 {
-  "name": "takatost/laravel-pubsub",
-  "description": "A Pub-Sub abstraction for Laravel",
+  "name": "takatost/lumen-pubsub",
+  "description": "A Pub-Sub abstraction for Lumen",
   "license": "MIT",
   "authors": [
     {
@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Superbalist\\LaravelPubSub\\": "src/",
+      "Takatost\\LumenPubSub\\": "src/",
       "Tests\\": "tests/"
     }
   },
