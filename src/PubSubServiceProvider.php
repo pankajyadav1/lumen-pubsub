@@ -15,7 +15,7 @@ class PubSubServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/pubsub.php' => config_path('pubsub.php'),
+            base_path('vendor/superbalist/laravel-pubsub/config/pubsub.php') => base_path('config/pubsub.php'),
         ]);
     }
 
@@ -24,7 +24,7 @@ class PubSubServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/pubsub.php', 'pubsub');
+        $this->mergeConfigFrom(base_path('vendor/superbalist/laravel-pubsub/config/pubsub.php'), 'pubsub');
 
         $this->app->singleton('pubsub.factory', function ($app) {
             return new PubSubConnectionFactory($app);
