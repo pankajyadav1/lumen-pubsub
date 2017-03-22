@@ -126,7 +126,7 @@ class PubSubConnectionFactory
      */
     protected function makeCmqAdapter($config)
     {
-        $client = $this->container->make('pubsub.cmq.http_client', ['config' => $config]);
+        $client = $this->container->make('pubsub.cmq.http_client', ['conf' => $config]);
 
         return new \Takatost\PubSub\CMQ\CMQPubSubAdapter($client);
     }
