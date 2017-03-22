@@ -74,6 +74,10 @@ class PubSubServiceProvider extends ServiceProvider
         $this->app->bind('pubsub.kafka.consumer', function ($app, $parameters) {
             return new \RdKafka\KafkaConsumer($parameters['conf']);
         });
+
+        $this->app->bind('pubsub.cmq.http_client', function ($app, $parameters) {
+            return new \Takatost\PubSub\CMQ\HttpClient($parameters['conf']);
+        });
     }
 
     /**
@@ -92,6 +96,7 @@ class PubSubServiceProvider extends ServiceProvider
             'pubsub.kafka.topic_conf',
             'pubsub.kafka.producer',
             'pubsub.kafka.consumer',
+            'pubsub.cmq.http_client'
         ];
     }
 }

@@ -46,6 +46,8 @@ class PubSubConnectionFactory
                 return $this->makeKafkaAdapter($config);
             case 'gcloud':
                 return $this->makeGoogleCloudAdapter($config);
+            case 'cmq':
+                return $this->makeCmqAdapter($config);
         }
 
         throw new InvalidArgumentException(sprintf('The driver [%s] is not supported.', $driver));
@@ -115,5 +117,17 @@ class PubSubConnectionFactory
         $autoCreateSubscriptions = array_get($config, 'auto_create_subscriptions', true);
 
         return new GoogleCloudPubSubAdapter($client, $clientIdentifier, $autoCreateTopics, $autoCreateSubscriptions);
+    }
+
+    /**
+     * Factory a CmqPubSubAdapter
+     * @param $config
+     * @return \Takatost\PubSub\CMQ\CMQPubSubAdapter
+     */
+    protected function makeCmqAdapter($config)
+    {
+        $client = $this->container->make('pubsub.cmq.http_client', ['config' => $config]);
+
+        return new \Takatost\PubSub\CMQ\CMQPubSubAdapter($client);
     }
 }

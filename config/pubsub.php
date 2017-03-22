@@ -62,6 +62,18 @@ return [
             'auto_create_subscriptions' => true,
         ],
 
+        'cmq' => [
+            'driver' => 'cmq',
+            'secret_id'  => env('CMQ_SECRET_ID'),
+            'secret_key' => env('CMQ_SECRET_KEY'),
+            'queue_end_point'  => env('CMQ_QUEUE_END_POINT'),
+            'topic_end_point'  => env('CMQ_TOPIC_END_POINT'),
+            'options'    => [
+                'debug'   => env('GUZZLE_HTTP_DEBUG', false),
+                'timeout' => env('GUZZLE_HTTP_TIMEOUT', 10),
+            ]
+        ]
+
     ],
 
 ];
